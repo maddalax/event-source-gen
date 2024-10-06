@@ -1,0 +1,4 @@
+# Project exclude paths
+/tmp/
+node_modules
+tmp

@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  run-app:
+    cmds:
+      - air
+    desc: "Run and watch the Go application using Air"
+
+  run-gen:
+    cmds:
+      - go run ./tooling/astgen
+    desc: "Run the AST generator"
+
+  watch-gen:
+    cmds:
+      - go run ./tooling/watch.go --command 'go run ./tooling/astgen'
+    desc: "Watch and regenerate using the AST generator"
