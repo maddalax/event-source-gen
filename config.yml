@@ -13,7 +13,7 @@ aggregates:
           email: string
 
       update-email:
-        events: [ user.created ]
+        events: [ user.email-changed ]
         fields:
           id: id [required]
           email: string
