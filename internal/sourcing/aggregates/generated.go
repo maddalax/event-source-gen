@@ -29,7 +29,7 @@ func Handle(command sourcing.Command) error {
 			return err
 		}
 		if e0 == nil {
-			return errors.New("command.UpdateEmailUser -> command.Handle -> events.UserCreated is nil. ensure it is returned from the aggregate")
+			return errors.New("command.UpdateEmailUser -> command.Handle -> events.UserEmailChanged is nil. ensure it is returned from the aggregate")
 		}
 		agg.AppendAndCommit(e0)
 		return nil
@@ -44,6 +44,9 @@ func LoadEvent(agg any, event *sourcing.BaseEvent[any]) error {
 		case *events.UserCreated:
 			a.Version = event.Version
 			return a.OnUserCreated(e)
+		case *events.UserEmailChanged:
+			a.Version = event.Version
+			return a.OnUserEmailChanged(e)
 		default:
 			return nil
 		}

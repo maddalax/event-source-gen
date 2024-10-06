@@ -8,15 +8,15 @@ import (
 
 type User struct{ sourcing.AggregateBase }
 
-func (a *User) OnUserEmailChanged(e *events.UserEmailChanged) error {
-	return nil
-}
 func (a *User) HandleCreateUser(c *commands.CreateUser) (*events.UserCreated, error) {
 	return nil, nil
 }
-func (a *User) HandleUpdateEmailUser(c *commands.UpdateEmailUser) (*events.UserCreated, error) {
+func (a *User) OnUserCreated(e *events.UserCreated) error {
+	return nil
+}
+func (a *User) HandleUpdateEmailUser(c *commands.UpdateEmailUser) (*events.UserEmailChanged, error) {
 	return nil, nil
 }
-func (a *User) OnUserCreated(e *events.UserCreated) error {
+func (a *User) OnUserEmailChanged(e *events.UserEmailChanged) error {
 	return nil
 }

@@ -44,8 +44,8 @@ type UpdateEmailUser struct {
 	Id    string
 }
 
-func (c *UpdateEmailUser) ToUserCreated() *events.UserCreated {
-	var event *events.UserCreated = &events.UserCreated{}
+func (c *UpdateEmailUser) ToUserEmailChanged() *events.UserEmailChanged {
+	var event *events.UserEmailChanged = &events.UserEmailChanged{}
 	event.Email = c.Email
 	event.Id = c.Id
 	return event
